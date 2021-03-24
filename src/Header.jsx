@@ -21,12 +21,15 @@ function Header() {
                 <img src="https://apett.org/civ/wp-content/uploads/2018/01/social-facebook-button-blue-icon.png" alt=""/>
                 <div className="header__input">
                     <SearchIcon/>
-                    <input type="text" />
+                    <input placeholder="Search Facebook"
+                    type="text" />
                 </div>
             </div>
 
             <div className="header__middle">
-                <div className="header__options">
+                <div className="header__options
+                header__option--active
+                ">
                     <HomeIcon fontSize="large" />
                 </div>    
                 <div className="header__options">
