@@ -25,6 +25,11 @@ function StoryReel() {
             profileSrc="https://www.ixbt.com/img/n1/news/2021/1/1/1522734231_ea2c55bd-cdfe-4cf1-a68a-eef46a4dfd09_w1200_r1_s_large.jpg"
             title="Ilon Mask"
             />
+            <Story
+            img="https://cdns-images.dzcdn.net/images/artist/661661034b11a5e70595ce359219a9fc/500x500.jpg"
+            profileSrc="https://wordpress.kondzilla.fluentcontent.com.br/app/uploads/2019/07/jhury-machado-e1562298556461.jpg"
+            title="Jury Machado"
+            />
         </div>
     )
 }

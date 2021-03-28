@@ -1,0 +1,21 @@
+.fb_logo{
+    width: 250px;
+}
+
+.fb_text{
+    width: 400px;
+}
+
+.login > div{
+    display: flex;
+    justify-content: center;
+}
+
+.login__wrapper{
+    min-height: 100vh;
+}
+
+.btn > button{
+    margin-top: 50px;
+    width: 300px;
+}
