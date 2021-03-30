@@ -4,13 +4,26 @@ import VideocamIcon from '@material-ui/icons/Videocam';
 import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import "./MessageSender.css"
+import {useSelector} from 'react-redux'
+import db from './firebase'
+import firebase from 'firebase'
 
 function MessageSender() {
+    const user = useSelector(state => state.all.user)
         const [input, setInput] = useState('')
         const [imgUrl, setImgUrl] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        alert(input)
+
+        db.collection('posts').add({
+            message: input,
+            timesTemp: firebase.firestore.FieldValue.serverTimestamp(),
+            profilePic: user.photoURL,
+            userName: user.displayName,
+            image: imgUrl
+        })
 
         setInput("")
         setImgUrl("")
@@ -20,17 +33,17 @@ function MessageSender() {
         <div className="messageSender">
             <div className="messageSenderTop">
                 <form>
-                    <Avatar src="https://scontent.fhel4-1.fna.fbcdn.net/v/t1.0-9/117161506_655733315296457_8736053335936174191_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=SuCczsgPS7YAX8pB6YP&_nc_ht=scontent.fhel4-1.fna&oh=284d3e76ae7125bc042925abf8817106&oe=607F0C8E" />
+                    <Avatar src={user.photoURL} />
                     <input
                     value={input}
                     onChange={(e) => setInput(e.currentTarget.value)}
                     className="messageSender_input"
-                    type="text" placeholder="Whats on your mind?" />
+                    type="text" placeholder={`Whats on your mind ${user.displayName}?`}/>
                     <input
                     value={imgUrl}
                     onChange={(e) => setImgUrl(e.currentTarget.value)}
                     type="text" placeholder="Url image" />
-                    <button tytpe="submit"
+                    <button type="submit"
                     onClick={handleSubmit}
                     >Hiden Submit</button>
                 </form>

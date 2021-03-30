@@ -1,11 +1,19 @@
 import React from 'react'
 import "./login.css"
 import Button from '@material-ui/core/Button';
+import {auth, provider} from './firebase'
+import {useDispatch} from 'react-redux'
+import {addUserAC} from './Redux/reducer'
 
 function Login() {
 
+    const dispatch = useDispatch()
+
     const signIn = () => {
-        alert("hello")
+        auth.signInWithPopup(provider)
+        .then((result) => {
+            dispatch(addUserAC(result.user))
+        }).catch(error => alert(error.message))
     }
 
     return (

@@ -11,10 +11,11 @@ import AddIcon from '@material-ui/icons/Add'
 import ForumIcon from '@material-ui/icons/Forum'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-
+import {useSelector} from 'react-redux'
 
 
 function Header() {
+    const user = useSelector(state => state.all.user)
     return (
         <div className="header">
             <div className="header__left">
@@ -48,8 +49,8 @@ function Header() {
 
             <div className="header__right">
                 <div className="header__info">
-                    <Avatar/>
-                    <h4>Alek Benny</h4>
+                    <Avatar src={user.photoURL} />
+                    <h4>{user.displayName}</h4>
                 </div>
                 <IconButton>
                     <AddIcon/>

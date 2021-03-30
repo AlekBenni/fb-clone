@@ -5,10 +5,11 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import Widgets from './Widgets';
 import Login from './Login'
+import {useSelector} from 'react-redux'
 
 function App() {
 
-  const user = null
+  const user = useSelector(state => state.all.user)
 
   return (
     <div className="app">

@@ -8,14 +8,16 @@ import ChatIcon from '@material-ui/icons/Chat'
 import StorefrontIcon from '@material-ui/icons/Storefront';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-
+import {useSelector} from 'react-redux'
 
 function Sidebar() {
+    const user = useSelector(state => state.all.user)
+    console.log(user)
     return (
         <div className="sidebar">
             <SidebarRow
-            src="https://scontent.fhel4-1.fna.fbcdn.net/v/t1.0-9/117161506_655733315296457_8736053335936174191_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=SuCczsgPS7YAX8pB6YP&_nc_ht=scontent.fhel4-1.fna&oh=284d3e76ae7125bc042925abf8817106&oe=607F0C8E"
-            title="Alek Benny"/>
+            src={user.photoURL}
+            title={user.displayName}/>
             <SidebarRow Icon={LocalHospitalIcon}
             title="COVID-21 Information Center"
             />
