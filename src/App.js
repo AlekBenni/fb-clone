@@ -7,6 +7,8 @@ import Widgets from './Widgets';
 import Login from './Login'
 import {useSelector} from 'react-redux'
 
+const user = 01
+
 function App() {
 
   const user = useSelector(state => state.all.user)
