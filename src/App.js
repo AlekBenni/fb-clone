@@ -7,7 +7,7 @@ import Widgets from './Widgets';
 import Login from './Login'
 import {useSelector} from 'react-redux'
 
-const user = "Alek Benny"
+const user = "Alek Benni"
 
 function App() {
 
